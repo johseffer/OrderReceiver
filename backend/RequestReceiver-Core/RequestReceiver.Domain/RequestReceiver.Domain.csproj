@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DTO\Customer\" />
+    <Folder Include="DTO\Product\" />
+    <Folder Include="DTO\OrderItem\" />
+    <Folder Include="DTO\Order\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RequestReceiver\RequestReceiver.csproj" />
+  </ItemGroup>
+
+</Project>

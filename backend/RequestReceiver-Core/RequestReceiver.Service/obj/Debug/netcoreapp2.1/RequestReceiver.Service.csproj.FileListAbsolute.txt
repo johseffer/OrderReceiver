@@ -1,0 +1,14 @@
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\obj\Debug\netcoreapp2.1\RequestReceiver.Service.csprojAssemblyReference.cache
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\obj\Debug\netcoreapp2.1\RequestReceiver.Service.csproj.CoreCompileInputs.cache
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\obj\Debug\netcoreapp2.1\RequestReceiver.Service.AssemblyInfoInputs.cache
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\obj\Debug\netcoreapp2.1\RequestReceiver.Service.AssemblyInfo.cs
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\bin\Debug\netcoreapp2.1\RequestReceiver.Service.deps.json
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\bin\Debug\netcoreapp2.1\RequestReceiver.Service.dll
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\bin\Debug\netcoreapp2.1\RequestReceiver.Service.pdb
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\bin\Debug\netcoreapp2.1\RequestReceiver.Domain.dll
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\bin\Debug\netcoreapp2.1\RequestReceiver.Domain.pdb
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\obj\Debug\netcoreapp2.1\RequestReceiver.Service.csproj.CopyComplete
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\obj\Debug\netcoreapp2.1\RequestReceiver.Service.dll
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\obj\Debug\netcoreapp2.1\RequestReceiver.Service.pdb
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\bin\Debug\netcoreapp2.1\RequestReceiver.dll
+C:\TFS\RequestReceiver\backend\RequestReceiver-Core\RequestReceiver.Service\bin\Debug\netcoreapp2.1\RequestReceiver.pdb
