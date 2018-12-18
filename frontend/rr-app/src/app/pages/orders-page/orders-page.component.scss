@@ -1,0 +1,45 @@
+.orders {   
+    background-image: url('../../../assets/bg10.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+    display: inline-table;   
+    background-color: purple;
+    width: 100%;
+    height: 100%;
+}
+
+.order-search {    
+    text-align: center;
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.order-form{
+    padding-top:50px;
+    padding-bottom: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: rgb(138, 255, 167);
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color: purple;
+}
+
+::ng-deep .mat-form-field-underline {
+    background-color: purple;
+    color:purple;
+}
+
+::ng-deep .mat-autocomplete-panel{
+    border-color: rgb(138, 255, 167);
+    background-color: rgb(182, 100, 236);   
+  }
+
+.order-number-full-width {
+    text-align: right;
+    width: 80%;
+}
+
+  
