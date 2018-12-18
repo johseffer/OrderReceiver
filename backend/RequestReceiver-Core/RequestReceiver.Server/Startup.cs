@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,8 +40,16 @@ namespace RequestReceiver.Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
             IntegrateSimpleInjector(services);
+            services.AddCors(o => o.AddPolicy("ORPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         private void IntegrateSimpleInjector(IServiceCollection services)
@@ -61,6 +70,8 @@ namespace RequestReceiver.Server
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors("ORPolicy");
+
             InitializeContainer(app);
 
             if (env.IsDevelopment())
@@ -81,6 +92,19 @@ namespace RequestReceiver.Server
             // Add application presentation components:
             container.RegisterMvcControllers(app);
             container.RegisterMvcViewComponents(app);
+
+            var profiles = Assembly.GetExecutingAssembly().GetTypes().Where(x => typeof(AutoMapper.Profile).IsAssignableFrom(x));
+
+            var config = new MapperConfiguration(cfg =>
+            {
+                foreach (var profile in profiles)
+                {
+                    cfg.AddProfile(Activator.CreateInstance(profile) as AutoMapper.Profile);
+                }
+            });
+
+            container.RegisterInstance<MapperConfiguration>(config);
+            container.Register<IMapper>(() => config.CreateMapper(container.GetInstance));
 
             container.Register<DbContext>(() =>
             {

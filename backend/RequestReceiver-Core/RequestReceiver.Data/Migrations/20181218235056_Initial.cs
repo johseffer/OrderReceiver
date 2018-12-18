@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RequestReceiver.Data.Migrations
 {
-    public partial class CreatingTables : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,7 +22,8 @@ namespace RequestReceiver.Data.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false)
+                    Id = table.Column<Guid>(nullable: false),
+                    Number = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -33,7 +34,9 @@ namespace RequestReceiver.Data.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false)
+                    Id = table.Column<Guid>(nullable: false),
+                    UnitPrice = table.Column<decimal>(nullable: false),
+                    Multiple = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,7 +49,9 @@ namespace RequestReceiver.Data.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     OrderId = table.Column<Guid>(nullable: false),
-                    ProductId = table.Column<Guid>(nullable: false)
+                    ProductId = table.Column<Guid>(nullable: false),
+                    UnitPrice = table.Column<decimal>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

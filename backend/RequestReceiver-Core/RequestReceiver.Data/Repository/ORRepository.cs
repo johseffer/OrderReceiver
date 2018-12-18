@@ -19,12 +19,27 @@ namespace RequestReceiver.Data.Repository
 
         public virtual void Add(TEntity obj)
         {
-            DbSet.Add(obj);
+            try
+            {
+                DbSet.Add(obj);
+                this.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public virtual TEntity GetById(Guid id)
         {
-            return DbSet.Find(id);
+            try
+            {
+                return DbSet.Find(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public virtual IQueryable<TEntity> GetAll()
@@ -34,12 +49,28 @@ namespace RequestReceiver.Data.Repository
 
         public virtual void Update(TEntity obj)
         {
-            DbSet.Update(obj);
+            try
+            {
+                DbSet.Update(obj);
+                this.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public virtual void Remove(Guid id)
         {
-            DbSet.Remove(DbSet.Find(id));
+            try
+            {
+                DbSet.Remove(DbSet.Find(id));
+                this.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int SaveChanges()

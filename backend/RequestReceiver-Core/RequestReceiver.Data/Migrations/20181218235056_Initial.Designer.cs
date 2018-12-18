@@ -10,8 +10,8 @@ using RequestReceiver.Data.Context;
 namespace RequestReceiver.Data.Migrations
 {
     [DbContext(typeof(ORContext))]
-    [Migration("20181217221244_CreatingTables")]
-    partial class CreatingTables
+    [Migration("20181218235056_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,8 @@ namespace RequestReceiver.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Number");
+
                     b.HasKey("Id");
 
                     b.ToTable("Orders");
@@ -50,6 +52,10 @@ namespace RequestReceiver.Data.Migrations
 
                     b.Property<Guid>("ProductId");
 
+                    b.Property<int>("Quantity");
+
+                    b.Property<decimal>("UnitPrice");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
@@ -63,6 +69,10 @@ namespace RequestReceiver.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Multiple");
+
+                    b.Property<decimal>("UnitPrice");
 
                     b.HasKey("Id");
 

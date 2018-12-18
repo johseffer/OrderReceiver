@@ -34,6 +34,8 @@ namespace RequestReceiver.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Number");
+
                     b.HasKey("Id");
 
                     b.ToTable("Orders");
@@ -48,6 +50,10 @@ namespace RequestReceiver.Data.Migrations
 
                     b.Property<Guid>("ProductId");
 
+                    b.Property<int>("Quantity");
+
+                    b.Property<decimal>("UnitPrice");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
@@ -61,6 +67,10 @@ namespace RequestReceiver.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Multiple");
+
+                    b.Property<decimal>("UnitPrice");
 
                     b.HasKey("Id");
 

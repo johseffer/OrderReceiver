@@ -11,6 +11,6 @@ namespace RequestReceiver.Domain.Entities
         }
 
         [Key]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }       
     }
 }
