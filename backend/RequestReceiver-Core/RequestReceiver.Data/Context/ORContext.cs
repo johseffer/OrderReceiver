@@ -12,7 +12,7 @@ namespace RequestReceiver.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ORDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=orderreceiver.database.windows.net;Database=ORDB;User ID=johseffer;Password=Brazilian@321!;Trusted_Connection=False;Encrypt=True;");
         }
     }
 

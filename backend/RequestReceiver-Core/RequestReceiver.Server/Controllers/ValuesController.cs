@@ -14,25 +14,16 @@ namespace RequestReceiver.Server.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly IMapper _mapper;
-        private readonly ICustomerService _service;
-        private readonly IProductService _productService;
-        private readonly IOrderService _orderService;
-        public ValuesController(ICustomerService service, IOrderService orderService, IProductService productService, IMapper mapper)
+        public ValuesController()
         {
-            _service = service;
-            _orderService = orderService;
-            _productService = productService;
-            _mapper = mapper;
+
         }
 
         // GET api/values
         [HttpGet]
         public ActionResult<IQueryable<Customer>> Get()
         {
-            //var order = new Order() { OrderItems = new List<OrderItem>() { new OrderItem() { ProductId = _productService.GetAll().First().Id } } };
-            //_orderService.Add(order);
-            return Ok(_orderService.GetAll().Select(c => _mapper.Map<OrderGetDTO>(c)));
+            return Ok(new string[] { "value1", "value2" });
         }
 
         // GET api/values/5
