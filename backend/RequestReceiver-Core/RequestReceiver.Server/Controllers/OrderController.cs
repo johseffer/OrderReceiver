@@ -32,6 +32,13 @@ namespace RequestReceiver.Server.Controllers
             var result = _service.GetAll().Where(x => x.Number.Contains(id)).ToList();
             return Ok(result);
         }
+        
+        [HttpGet("GetDetail/{id}")]
+        public ActionResult<Order> GetDetail(string id)
+        {
+            var result = _service.GetAll().Where(x => x.Number.Contains(id)).FirstOrDefault();
+            return Ok(result);
+        }
 
         // POST api/Order
         [HttpPost]
