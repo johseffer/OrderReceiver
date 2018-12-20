@@ -1,0 +1,9 @@
+<div class="page">
+    <div class="order-search">   
+        <form class="order-form">
+            <mat-form-field class="order-number-full-width">
+              <input type="text" placeholder="Informe o numero do seu pedido: (Ex.: #096857463)" (input)="loadOrders($event.target.value)" aria-label="Informe o numero do seu pedido: (Ex.: #096857463)" matInput [formControl]="myControl" >            
+            </mat-form-field>
+          </form>      
+      </div>
+</div>

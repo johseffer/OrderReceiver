@@ -1,10 +1,10 @@
-<div class="orders">
+<div class="page">
   <div class="order-search">   
     <form class="order-form">
         <mat-form-field class="order-number-full-width">
           <input type="text" placeholder="Informe o numero do seu pedido: (Ex.: #096857463)" (input)="loadOrders($event.target.value)" aria-label="Informe o numero do seu pedido: (Ex.: #096857463)" matInput [formControl]="myControl" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete"  >
-            <mat-option *ngFor="let option of filteredOptions" [value]="option">
+            <mat-option *ngFor="let option of filteredOptions" (onSelectionChange)="detailOrder($event)" [value]="option.number">
               {{option.number}}
             </mat-option>
           </mat-autocomplete>

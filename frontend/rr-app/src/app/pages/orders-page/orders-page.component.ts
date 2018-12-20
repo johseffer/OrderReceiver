@@ -5,6 +5,7 @@ import { map, startWith } from 'rxjs/operators';
 import { Order } from 'src/app/shared/models/order-model';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { MatTableDataSource, MatAutocompleteSelectedEvent } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders-page',
@@ -13,7 +14,7 @@ import { MatTableDataSource, MatAutocompleteSelectedEvent } from '@angular/mater
 })
 export class OrdersPageComponent implements OnInit {
 
-  constructor(private _orderService: OrderService) {
+  constructor(private _orderService: OrderService, private _router: Router) {
 
   }
   myControl = new FormControl();
@@ -23,7 +24,13 @@ export class OrdersPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  private loadOrders(number) {
+  detailOrder(event) {
+    const orderId = event.source.value;
+    this._router.navigate([`/order/${orderId}`]);
+  }
+
+  loadOrders(number) {
+    this.filteredOptions = [];
     if (number.length >= 3) {
       const result = new MatTableDataSource<Order>();
       const elementsArray = [];

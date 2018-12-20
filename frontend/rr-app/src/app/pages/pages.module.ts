@@ -9,9 +9,12 @@ import {
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { OrderService } from '../shared/services/order.service';
+import { OrdersDetailPageComponent } from './orders-page/orders-detail-page/orders-detail-page.component';
+import { OrdersItemPageComponent } from './orders-page/orders-item-page/orders-item-page.component';
+import { OrdersItemDetailPageComponent } from './orders-page/orders-item-detail-page/orders-item-detail-page.component';
 
 @NgModule({
-  declarations: [HomePageComponent, OrdersPageComponent],
+  declarations: [HomePageComponent, OrdersPageComponent, OrdersDetailPageComponent, OrdersItemPageComponent, OrdersItemDetailPageComponent],
   imports: [
     CommonModule,
     FormsModule,
