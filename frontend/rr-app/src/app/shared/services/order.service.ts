@@ -9,6 +9,6 @@ export class OrderService {
   }
 
   getOrder(number: string) {
-    return this.httpService.get(`http://orderreceiver.eastus2.cloudapp.azure.com/api/Order/${number}`).toPromise();
+    return this.httpService.get(`//orderreceiver.eastus2.cloudapp.azure.com/api/Order/${number}`).toPromise();
   }
 }
