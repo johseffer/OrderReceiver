@@ -8,7 +8,11 @@ export class OrderService {
   constructor(public httpService: HttpService) {
   }
 
-  getOrder(number: string) {
+  getOrders(number: string) {
     return this.httpService.get(`//orderreceiver.eastus2.cloudapp.azure.com/api/Order/${number}`).toPromise();
+  }
+
+  getOrder(id: string) {
+    return this.httpService.get(`//orderreceiver.eastus2.cloudapp.azure.com/api/Order/GetDetail/${id}`).toPromise();
   }
 }

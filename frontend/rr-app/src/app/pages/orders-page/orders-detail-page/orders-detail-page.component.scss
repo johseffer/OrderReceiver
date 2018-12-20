@@ -1,7 +1,7 @@
 
 
 .order-search {    
-    text-align: center;
+    // text-align: center;
     display:table-cell;
     vertical-align: middle;
 }
@@ -13,4 +13,31 @@
     margin-right: 30px;
     background-color: rgb(138, 255, 167);
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); 
+    padding: 20px;
+}
+
+
+::ng-deep .mat-input-underline{
+    background-color: black;
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color:rgb(77, 0, 77);
+}
+
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{ 
+    background: purple; 
+}
+
+::ng-deep .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    color: purple;    
+  }
+
+::ng-deep input .mat-input-element, .ng-dirty, ng-invalid, .ng-touched label {
+    color: purple;
+}  
+
+::ng-deep .mat-autocomplete-panel{
+    border-color: rgb(138, 255, 167);
+    background-color: rgb(182, 100, 236);   
 }

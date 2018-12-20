@@ -1,5 +1,3 @@
-
-
 .order-search {    
     text-align: center;
     display:table-cell;
@@ -14,6 +12,12 @@
     background-color: rgb(138, 255, 167);
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); 
 }
+
+.order-number-full-width {
+    text-align: right;
+    width: 80%;
+}
+
 
 ::ng-deep .mat-input-underline{
     background-color: black;
@@ -38,11 +42,6 @@
 ::ng-deep .mat-autocomplete-panel{
     border-color: rgb(138, 255, 167);
     background-color: rgb(182, 100, 236);   
-  }
-
-.order-number-full-width {
-    text-align: right;
-    width: 80%;
 }
 
   

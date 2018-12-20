@@ -1,7 +1,10 @@
 <div class="page">
   <div class="order-search">
     <form class="order-form">
-
+      <mat-form-field class="order-number-full-width">      
+        <input type="text" placeholder="Nr. Pedido" value="{{order?.number}}" aria-label="Nr. Pedido" matInput [formControl]="numberControl"
+          readonly>
+      </mat-form-field>
     </form>
   </div>
 </div>
