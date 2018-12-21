@@ -5,9 +5,12 @@ using System.Text;
 
 namespace RequestReceiver.Domain.DTO.Order
 {
-    public class OrderGetDTO : EntityBase
-    {        
+    public class OrderGetDetailDTO : EntityBase
+    {
+        public virtual IList<OrderGetDetailItemDTO> OrderItems { get; set; }
+
         public string Number { get; set; }
+
         public DateTime? CreationDate { get; set; }
     }
 }

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RequestReceiver.Domain.DTO.Order;
 using RequestReceiver.Domain.Entities;
 using RequestReceiver.Domain.Interfaces.Service;
 
@@ -13,49 +16,55 @@ namespace RequestReceiver.Server.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _service;
-        public OrderController(IOrderService service)
+        private readonly IMapper _mapper;
+        public OrderController(IOrderService service, IMapper mapper)
         {
             _service = service;
+            _mapper = mapper;
         }
 
         // GET api/Order
         [HttpGet]
-        public IEnumerable<Order> Get()
+        public List<OrderGetDTO> Get()
         {
             return _service.GetAll();
         }
 
         // GET api/Order/5
         [HttpGet("{id}")]
-        public ActionResult<Order> Get(string id)
+        public ActionResult<OrderGetDTO> Get(string id)
         {
-            var result = _service.GetAll().Where(x => x.Number.Contains(id)).ToList();
-            return Ok(result);
+            return Ok(_service.GetAll().Where(x => x.Number.Contains(id)).ToList());
         }
-        
+
         [HttpGet("GetDetail/{id}")]
-        public ActionResult<Order> GetDetail(string id)
+        public ActionResult<OrderGetDTO> GetDetail(string id)
         {
-            var result = _service.GetAll().Where(x => x.Number.Contains(id)).FirstOrDefault();
-            return Ok(result);
+            return Ok(_service.GetById(new Guid(id)));
         }
 
         // POST api/Order
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] Order model)
         {
+            _service.Add(model);
+            return Ok();
         }
 
         // PUT api/Order/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put(Guid id, [FromBody] Order model)
         {
+            _service.Update(model);
+            return Ok();
         }
 
         // DELETE api/Order/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(Guid id)
         {
+            _service.Remove(id);
+            return Ok();
         }
     }
 }

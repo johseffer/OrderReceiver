@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
   </ItemGroup>
 
@@ -22,6 +23,9 @@
   <ItemGroup>
     <Compile Update="Migrations\20181218235056_Initial.Designer.cs">
       <DependentUpon>20181218235056_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Migrations\20181221101802_CreateProductNameAndOrderDate.Designer.cs">
+      <DependentUpon>20181221101802_CreateProductNameAndOrderDate.cs</DependentUpon>
     </Compile>
   </ItemGroup>
 

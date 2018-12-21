@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DTO\Order\OrderGetItemDTO.cs" />
+    <Compile Remove="DTO\Order\OrderGetProductDTO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="DTO\Customer\" />
     <Folder Include="DTO\Product\" />
     <Folder Include="DTO\OrderItem\" />
