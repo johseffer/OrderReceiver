@@ -4,7 +4,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import {
   MatAutocompleteModule, MatFormFieldModule, MatSlideToggleModule,
-  MatProgressSpinnerModule, MatInputModule
+  MatProgressSpinnerModule, MatInputModule, MatCardModule
 } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
@@ -19,6 +19,7 @@ import { OrdersItemDetailPageComponent } from './orders-page/orders-item-detail-
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatSlideToggleModule,

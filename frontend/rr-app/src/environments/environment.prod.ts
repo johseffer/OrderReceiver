@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'http://orderreceiver.eastus2.cloudapp.azure.com',
 };

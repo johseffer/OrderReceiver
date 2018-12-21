@@ -1,10 +1,31 @@
 <div class="page">
-  <div class="order-search">
+  <div class="order-detail">
     <form class="order-form">
-      <mat-form-field class="order-number-full-width">      
-        <input type="text" placeholder="Nr. Pedido" value="{{order?.number}}" aria-label="Nr. Pedido" matInput [formControl]="numberControl"
-          readonly>
+      <div class="order-actions">
+        <button class="btn ion ion-md-add-circle-outline" (click)="addOrderItem()"></button>
+        <button class="btn ion ion-md-checkmark-circle-outline" (click)="saveOrder()"></button>
+      </div>
+      <mat-form-field class="order-number">
+        <input type="text" placeholder="Nr. Pedido" value="{{order?.number}}" aria-label="Nr. Pedido" matInput
+          [formControl]="numberControl">
       </mat-form-field>
+      <div class="order-items">
+        <mat-card *ngFor="let item of order.orderItems; let i = index">
+          <div class="item-title"><span>Item #{{i+1}}</span></div>
+          <div class="item-fields">
+            <mat-form-field class="item-name-field">
+              <input type="text" placeholder="Produto" value="{{item.name}}" aria-label="Produto" matInput>
+            </mat-form-field>
+            <mat-form-field class="item-field">
+              <input type="text" placeholder="Quantidade" value="{{item.quantity}}" aria-label="Quantidade" matInput>
+            </mat-form-field>
+            <mat-form-field class="item-field">
+              <input type="text" placeholder="Preço Unitário" [ngModel]="item.unitPrice | currency:'USD':'symbol':'2.2'"
+                aria-label="Preço Unitário" matInput>
+            </mat-form-field>
+          </div>
+        </mat-card>
+      </div>
     </form>
   </div>
 </div>

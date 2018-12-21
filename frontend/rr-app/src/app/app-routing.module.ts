@@ -8,6 +8,7 @@ import { OrdersDetailPageComponent } from './pages/orders-page/orders-detail-pag
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'orders', component: OrdersPageComponent },
+  { path: 'order', component: OrdersDetailPageComponent },
   { path: 'order/:number', component: OrdersDetailPageComponent },
   { path: 'home', component: HomePageComponent }
 ];

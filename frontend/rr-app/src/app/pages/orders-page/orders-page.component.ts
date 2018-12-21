@@ -24,9 +24,12 @@ export class OrdersPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  detailOrder(event) {
-    const orderNumber = event.source.value;
-    this._router.navigate([`/order/${orderNumber}`]);
+  addOrder() {
+    this._router.navigate([`/order/`]);
+  }
+
+  detailOrder(order) {
+    this._router.navigate([`/order/${order.id}`]);
   }
 
   loadOrders(number) {
