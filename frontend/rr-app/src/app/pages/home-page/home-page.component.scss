@@ -11,6 +11,14 @@ $poppings : 'Poppins';
     vertical-align: middle;
 }
 
+.btn {
+    margin-top: 50px;
+    font-size: 18pt;
+    border-radius: 50%;    
+    border: 4px solid rgb(108, 251, 116);
+    color: rgb(108, 251, 116) !important;
+}
+
 .btn-add {
     position: absolute;
     right: 0;   
@@ -38,6 +46,7 @@ $poppings : 'Poppins';
 }
 
 .title h6 {
+    margin-top: 10px;
     color:white;
     display:table-row;
     vertical-align: middle;
