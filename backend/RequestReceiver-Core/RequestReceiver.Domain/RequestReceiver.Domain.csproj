@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <Folder Include="DTO\Customer\" />
-    <Folder Include="DTO\Product\" />
     <Folder Include="DTO\OrderItem\" />
   </ItemGroup>
 

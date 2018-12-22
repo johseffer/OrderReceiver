@@ -23,18 +23,11 @@ namespace RequestReceiver.Server.Controllers
             _mapper = mapper;
         }
 
-        // GET api/Order
-        [HttpGet]
-        public List<OrderGetDTO> Get()
-        {
-            return _service.GetAll();
-        }
-
         // GET api/Order/5
-        [HttpGet("{id}")]
-        public ActionResult<OrderGetDTO> Get(string id)
+        [HttpGet("{number}")]
+        public ActionResult<OrderGetDTO> Get(string number)
         {
-            return Ok(_service.GetAll().Where(x => x.Number.Contains(id)).ToList());
+            return Ok(_service.GetOrderByNumberWith(number).ToList());
         }
 
         [HttpGet("GetDetail/{id}")]

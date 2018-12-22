@@ -30,9 +30,9 @@ namespace RequestReceiver.Service.Services
             _OrderRepository.Add(obj);
         }
 
-        public List<OrderGetDTO> GetAll()
+        public List<OrderGetDTO> GetOrderByNumberWith(string number)
         {
-            return _OrderRepository.GetAll().Select(obj => _mapper.Map<Order, OrderGetDTO>(obj)).ToList();
+            return _OrderRepository.GetAll().Where(x => x.Number.Contains(number)).Select(obj => _mapper.Map<Order, OrderGetDTO>(obj)).ToList();
         }
 
         public OrderGetDetailDTO GetById(Guid id)

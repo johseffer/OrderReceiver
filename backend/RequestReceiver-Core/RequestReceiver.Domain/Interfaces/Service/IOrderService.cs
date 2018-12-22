@@ -10,7 +10,7 @@ namespace RequestReceiver.Domain.Interfaces.Service
 {
     public interface IOrderService : IAutoInject, IDisposable
     {
-        List<OrderGetDTO> GetAll();
+        List<OrderGetDTO> GetOrderByNumberWith(string number);
         void Add(Order obj);
         OrderGetDetailDTO GetById(Guid id);
         void Update(Order obj);
