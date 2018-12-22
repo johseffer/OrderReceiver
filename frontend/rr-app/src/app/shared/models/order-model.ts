@@ -10,5 +10,6 @@ export class Order {
         this.id = obj.id;
         this.name = obj.name;
         this.number = obj.number;
+        this.orderItems = obj.orderItems;
     }
 }

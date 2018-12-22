@@ -5,4 +5,5 @@ export class OrderItem {
     product: Product;
     unitPrice: number;
     quantity: number;
+    rentability: number;
 }
