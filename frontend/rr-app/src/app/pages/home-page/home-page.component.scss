@@ -1,0 +1,64 @@
+@import url(//fonts.googleapis.com/css?family=Poppins);
+$poppings : 'Poppins';
+
+.home {     
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.btn {
+    margin-top: 50px;
+    font-size: 18pt;
+    border-radius: 50%;    
+    border: 4px solid rgb(108, 251, 116);
+    color: rgb(108, 251, 116) !important;
+}
+
+.btn-add {
+    position: absolute;
+    right: 0;   
+    z-index: 400;
+}   
+
+.title {
+    display:table-cell;
+    vertical-align: middle;
+    width: 100%;
+    display:table;
+    text-align: center;
+    position: absolute;   
+     top: 30%;    
+    z-index: 400;
+}
+
+.title h1 {
+    color:white;
+    display:table-row;
+    vertical-align: middle;
+    font-family: $poppings;
+    font-size: 36pt;
+    width: 100%;
+}
+
+.title h6 {
+    margin-top: 10px;
+    color:white;
+    display:table-row;
+    vertical-align: middle;
+    font-family: $poppings;
+    font-size: 12pt;
+    width: 100%;
+}
+
+.title-mark{
+    color: rgb(108, 251, 116);  
+}
+
+.home-video{
+    opacity: 0.81
+}

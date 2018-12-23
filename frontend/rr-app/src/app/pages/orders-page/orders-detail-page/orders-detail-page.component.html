@@ -1,0 +1,65 @@
+<div class="page">
+  <div class="order-detail">
+
+    <div class="page-top">
+      <div class="order-actions">
+
+        <mat-progress-spinner *ngIf="isLoadingButtons" [diameter]="35" mode="indeterminate"></mat-progress-spinner>
+
+        <button *ngIf="!isLoadingButtons" class="btn-action btn ion ion-md-add-circle-outline" (click)="addOrderItem()"></button>
+        <button *ngIf="!isLoadingButtons" class="btn-action btn ion ion-md-checkmark-circle-outline" (click)="saveOrder()"></button>
+      </div>
+    </div>
+
+    <form class="order-form">
+      <div class="loading" *ngIf="isLoading">
+        <mat-progress-spinner color="purple" mode="indeterminate"></mat-progress-spinner>
+      </div>
+      <div *ngIf="!isLoading">
+        <mat-form-field class="order-number">
+          <input type="text" placeholder="Nr. Pedido" name="number" [ngModel]="order.number" (blur)="updateOrderNumber($event)"
+            aria-label="Nr. Pedido" matInput required>
+        </mat-form-field>
+        <mat-form-field class="order-customer">
+          <input type="text" placeholder="Cliente" name="customer" [ngModel]="order.customer?.name" (input)="loadCustomers($event.target.value)"
+            aria-label="Cliente" matInput [matAutocomplete]="auto" required>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of customerOptions" (onSelectionChange)="customerChange(option)" [value]="option.name">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <div class="order-items">
+          <mat-card *ngFor="let item of order.orderItems; let i = index">
+            <div class="item-title"><span>Item #{{i+1}}</span></div>
+            <div *ngIf="order && order.orderItems[i]" class="item-fields">
+              <mat-form-field class="item-name-field">
+                <input type="text" placeholder="Produto" name="product{{i}}" [ngModel]="order.orderItems[i].product?.name"
+                  (input)="loadProducts($event.target.value)" aria-label="Produto" matInput [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of productOptions" (onSelectionChange)="productChange(item, option, quantity)"
+                    [value]="option.name">
+                    {{option.name}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <mat-form-field class="item-field">
+                <input type="number" #quantity (change)="quantityChange($event, item)" step="{{order.orderItems[i].product?.multiple}}"
+                  onkeypress="return false;" [disabled]="!order.orderItems[i].product" placeholder="Quantidade"
+                  (mouseenter)="mouseOverQuantity(quantity)" name="quantity{{i}}" [ngModel]="order.orderItems[i].quantity"
+                  aria-label="Quantidade" matInput>
+              </mat-form-field>
+              <mat-form-field class="item-field">
+                <input type="text" placeholder="Preço Unitário" name="unitPrice{{i}}" [ngModel]="order.orderItems[i].unitPrice | currency:'BRL':'symbol':'2.2'"
+                  [ngModelOptions]="{updateOn:'blur'}" aria-label="Preço Unitário" matInput (blur)="updateItemRentability($event,item)"
+                  [disabled]="!order.orderItems[i].product">
+              </mat-form-field>
+              <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="3" name="rentability{{i}}"
+                [ngModel]="order.orderItems[i].rentability" (focus)="onRentabilityFocus($event)"></mat-slider>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
