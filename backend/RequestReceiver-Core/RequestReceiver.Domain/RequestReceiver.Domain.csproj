@@ -10,11 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\Customer\" />
-    <Folder Include="DTO\OrderItem\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RequestReceiver\RequestReceiver.csproj" />
   </ItemGroup>
 

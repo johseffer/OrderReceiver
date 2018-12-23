@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using RequestReceiver.Domain.DTO.Order;
+using RequestReceiver.Domain.Interfaces.Service;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using RequestReceiver.Domain.Entities;
-using RequestReceiver.Domain.Interfaces.Service;
 
 namespace RequestReceiver.Server.Controllers
 {
@@ -17,19 +15,12 @@ namespace RequestReceiver.Server.Controllers
         {
             _service = service;
         }
-
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IQueryable<Customer>> Get()
+        
+        // GET api/Customer
+        [HttpGet("{name}")]
+        public List<CustomerGetDTO> Get(string name)
         {
-            return Ok(_service.GetAll());
+            return _service.GetCustomerByNameWith(name).ToList();
         }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<Customer> Get(Guid id)
-        {
-            return Ok(_service.GetAll().Where(x => x.Id == id));
-        }        
     }
 }

@@ -8,8 +8,11 @@ using System.Text;
 
 namespace RequestReceiver.Domain.Interfaces.Service
 {
-    public interface ICustomerService : IAutoInject, IDisposable
+    public interface IOrderItemService : IAutoInject, IDisposable
     {
-        List<CustomerGetDTO> GetCustomerByNameWith(string name);
+        OrderItem GetById(Guid Id);
+        void Add(OrderItem obj);
+        void Update(OrderItem obj);
+        void Remove(Guid id);
     }
 }

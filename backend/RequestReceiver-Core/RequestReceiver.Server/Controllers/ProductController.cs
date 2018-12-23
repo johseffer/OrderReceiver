@@ -19,18 +19,11 @@ namespace RequestReceiver.Server.Controllers
             _service = service;
         }
 
-        // GET api/Order
+        // GET api/Product
         [HttpGet("{name}")]
         public List<ProductGetDTO> Get(string name)
         {
             return _service.GetProductByNameWith(name).ToList();
-        }
-
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public ActionResult<Product> Get(Guid id)
-        //{
-        //    return Ok(_service.GetAll().Where(x => x.Id == id));
-        //}        
+        }     
     }
 }

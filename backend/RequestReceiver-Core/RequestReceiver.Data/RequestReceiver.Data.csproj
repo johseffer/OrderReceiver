@@ -27,6 +27,9 @@
     <Compile Update="Migrations\20181221101802_CreateProductNameAndOrderDate.Designer.cs">
       <DependentUpon>20181221101802_CreateProductNameAndOrderDate.cs</DependentUpon>
     </Compile>
+    <Compile Update="Migrations\20181223022326_CreateCustomerInOrder_FK.Designer.cs">
+      <DependentUpon>20181223022326_CreateCustomerInOrder_FK.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

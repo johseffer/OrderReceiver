@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RequestReceiver.Data.Context;
 
 namespace RequestReceiver.Data.Migrations
 {
     [DbContext(typeof(ORContext))]
-    partial class ORContextModelSnapshot : ModelSnapshot
+    [Migration("20181223022326_CreateCustomerInOrder_FK")]
+    partial class CreateCustomerInOrder_FK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

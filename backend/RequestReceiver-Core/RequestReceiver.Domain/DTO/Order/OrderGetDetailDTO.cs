@@ -11,6 +11,10 @@ namespace RequestReceiver.Domain.DTO.Order
 
         public string Number { get; set; }
 
+        public virtual OrderGetDetailCustomerDTO Customer { get; set; }
+
+        public Guid CustomerId { get; set; }
+
         public DateTime? CreationDate { get; set; }
     }
 }

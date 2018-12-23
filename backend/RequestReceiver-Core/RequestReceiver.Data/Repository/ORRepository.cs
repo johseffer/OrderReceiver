@@ -51,7 +51,7 @@ namespace RequestReceiver.Data.Repository
         {
             try
             {
-                DbSet.Update(obj);
+                Db.Entry<TEntity>(obj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 this.SaveChanges();
             }
             catch (Exception ex)

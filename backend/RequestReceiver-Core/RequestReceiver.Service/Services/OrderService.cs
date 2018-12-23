@@ -13,10 +13,12 @@ namespace RequestReceiver.Service.Services
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _OrderRepository;
+        private readonly IOrderItemService _OrderItemService;
 
-        public OrderService(IOrderRepository OrderRepository, IMapper mapper)
+        public OrderService(IOrderRepository OrderRepository, IOrderItemService OrderItemService, IMapper mapper)
         {
             _OrderRepository = OrderRepository;
+            _OrderItemService = OrderItemService;
             _mapper = mapper;
         }
 
@@ -25,9 +27,34 @@ namespace RequestReceiver.Service.Services
             obj.CreationDate = DateTime.Now;
 
             foreach (var item in obj.OrderItems)
+            {
                 item.OrderId = obj.Id;
+                item.Product = null;
+            }
 
             _OrderRepository.Add(obj);
+        }
+
+        public void Remove(Guid id)
+        {
+            _OrderRepository.Remove(id);
+        }
+
+        public void Update(Order obj)
+        {
+            _OrderRepository.Update(obj);
+            this.UpdateItems(obj);
+        }
+
+        public void UpdateItems(Order obj)
+        {
+            foreach (var item in obj.OrderItems)
+            {
+                if (_OrderItemService.GetById(item.Id) != null)
+                    _OrderItemService.Remove(item.Id);
+                item.Product = null;
+                _OrderItemService.Add(item);
+            }
         }
 
         public List<OrderGetDTO> GetOrderByNumberWith(string number)
@@ -37,12 +64,14 @@ namespace RequestReceiver.Service.Services
 
         public OrderGetDetailDTO GetById(Guid id)
         {
-            var obj = _OrderRepository.GetById(id);           
+            var obj = _OrderRepository.GetById(id);
             var dto = new OrderGetDetailDTO()
             {
                 Id = obj.Id,
                 CreationDate = obj.CreationDate,
                 Number = obj.Number,
+                Customer = new OrderGetDetailCustomerDTO() { Name = obj.Customer.Name, Id = obj.Customer.Id },
+                CustomerId = obj.CustomerId,
                 OrderItems = obj.OrderItems.Select(x => new OrderGetDetailItemDTO()
                 {
                     Id = x.Id,
@@ -54,21 +83,12 @@ namespace RequestReceiver.Service.Services
                         Multiple = x.Product.Multiple,
                         UnitPrice = x.Product.UnitPrice
                     },
+                    ProductId = x.Product.Id,
                     Quantity = x.Quantity,
                     UnitPrice = x.UnitPrice
                 }).ToList()
             };
             return dto;
-        }
-
-        public void Remove(Guid id)
-        {
-            _OrderRepository.Remove(id);
-        }
-
-        public void Update(Order obj)
-        {
-            _OrderRepository.Update(obj);
         }
 
         public void Dispose()
