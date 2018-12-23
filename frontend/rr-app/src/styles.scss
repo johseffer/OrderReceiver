@@ -1,9 +1,20 @@
+@import url(//fonts.googleapis.com/css?family=Poppins);
+$poppings : 'Poppins';
+
 body, html {
     margin: 0px !important;
     padding: 0px !important;   
     width: 100%  !important;
     height: 100%  !important;
     overflow: hidden  !important;
+}
+
+.toast-title {
+    font-family: $poppings;
+}
+
+.toast-message {
+    font-family: $poppings;
 }
 
 .page {   

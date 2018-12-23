@@ -39,11 +39,13 @@ export class OrdersPageComponent implements OnInit {
       const elementsArray = [];
       this._orderService.getOrders(number)
         .then(r => {
+          this.filteredOptions = [];
           (r as any).forEach(element => {
             this.filteredOptions.push(element);
           });
         })
         .catch(error => {
+          this.filteredOptions = [];
           alert('Erro ao buscar pedidos.');
         });
     }

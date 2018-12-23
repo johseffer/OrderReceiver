@@ -1,19 +1,23 @@
 <div class="page">
   <div class="order-search">
     <form class="order-form">
-      <div class="order-actions">
-        <button class="btn ion ion-md-add-circle-outline" (click)="addOrder()"></button>
+      <div class="page-top">
+        <div class="order-actions">
+          <button #btnadd class="btn ion ion-md-add-circle-outline" (click)="addOrder()"></button>
+        </div>
       </div>
-      <mat-form-field class="order-number-full-width">
-        <input type="text" placeholder="Informe o numero do seu pedido: (Ex.: #096857463)" (input)="loadOrders($event.target.value)"
-          aria-label="Informe o numero do seu pedido: (Ex.: #096857463)" matInput [formControl]="numberControl"
-          [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions" (onSelectionChange)="detailOrder(option)" [value]="option.number">
-            {{option.number}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+      <div class="order-search-number">
+        <mat-form-field class="order-number-full-width">
+          <input type="text" placeholder="Informe o numero do seu pedido: (Ex.: #096857463)" (input)="loadOrders($event.target.value)"
+            aria-label="Informe o numero do seu pedido: (Ex.: #096857463)" matInput [formControl]="numberControl"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions" style="text-align:center !important;" (onSelectionChange)="detailOrder(option)" [value]="option.number">
+              {{option.number}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
     </form>
   </div>
 </div>

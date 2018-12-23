@@ -1,4 +1,5 @@
-
+@import url(//fonts.googleapis.com/css?family=Poppins);
+$poppings : 'Poppins';
 
 ::ng-deep {
 
@@ -177,6 +178,25 @@ mat-progress-spinner {
 .order-customer{
     margin-left:15px;
 }
+
+.toast-title {
+    font-weight: bold;
+    font-family: $poppings;
+  }
+  .toast-message {
+    word-wrap: break-word;
+    font-family: $poppings;
+  }
+  .toast-message a,
+  .toast-message label {
+    color: #FFFFFF;
+    font-family: $poppings;
+  }
+  .toast-message a:hover {
+    color: #CCCCCC;
+    font-family: $poppings;
+    text-decoration: none;
+  }
 
 mat-card {    
     background-color: #e8e8e8;

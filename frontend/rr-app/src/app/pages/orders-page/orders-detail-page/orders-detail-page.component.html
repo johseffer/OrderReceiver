@@ -18,11 +18,11 @@
       <div *ngIf="!isLoading">
         <mat-form-field class="order-number">
           <input type="text" placeholder="Nr. Pedido" name="number" [ngModel]="order.number" (blur)="updateOrderNumber($event)"
-            aria-label="Nr. Pedido" matInput>
+            aria-label="Nr. Pedido" matInput required>
         </mat-form-field>
         <mat-form-field class="order-customer">
-          <input type="text" placeholder="Cliente" name="customer" [ngModel]="order.customer" (input)="loadCustomers($event.target.value)"
-            aria-label="Cliente" matInput [matAutocomplete]="auto">
+          <input type="text" placeholder="Cliente" name="customer" [ngModel]="order.customer?.name" (input)="loadCustomers($event.target.value)"
+            aria-label="Cliente" matInput [matAutocomplete]="auto" required>
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of customerOptions" (onSelectionChange)="customerChange(option)" [value]="option.name">
               {{option.name}}
