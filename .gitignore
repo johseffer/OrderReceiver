@@ -20,3 +20,13 @@ backend/RequestReceiver-Core/RequestReceiver\.Server/obj/
 backend/RequestReceiver-Core/RequestReceiver\.Service/bin/
 
 backend/RequestReceiver-Core/RequestReceiver\.Service/obj/
+
+backend/RequestReceiver-Core/RequestReceiver\.Data\.UnitTest/obj/
+
+backend/RequestReceiver-Core/RequestReceiver\.Domain\.UnitTest/obj/
+
+backend/RequestReceiver-Core/RequestReceiver\.Server\.UnitTest/obj/
+
+backend/RequestReceiver-Core/RequestReceiver\.Service\.UnitTest/obj/
+
+backend/RequestReceiver-Core/RequestReceiver\.UnitTest/obj/

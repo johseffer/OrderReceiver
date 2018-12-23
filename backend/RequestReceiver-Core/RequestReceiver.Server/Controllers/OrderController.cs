@@ -40,6 +40,13 @@ namespace RequestReceiver.Server.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] Order model)
         {
+            var validationMessages = model.IsValid();
+            if (validationMessages.Any())
+            {
+                validationMessages.Select(x => x.Message).ToList().ForEach(message => { ModelState.AddModelError("order", message); });
+                return BadRequest(ModelState);
+            }
+
             _service.Add(model);
             return Ok();
         }
@@ -48,6 +55,13 @@ namespace RequestReceiver.Server.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(Guid id, [FromBody] Order model)
         {
+            var validationMessages = model.IsValid();
+            if (validationMessages.Any())
+            {
+                validationMessages.Select(x => x.Message).ToList().ForEach(message => { ModelState.AddModelError("order", message); });
+                return BadRequest(ModelState);
+            }
+
             _service.Update(model);
             return Ok();
         }

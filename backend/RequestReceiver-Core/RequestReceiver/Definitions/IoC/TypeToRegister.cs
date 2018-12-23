@@ -8,6 +8,12 @@ namespace RequestReceiver.Definitions.IoC
     {
         public TypeToRegister(Type type, Type typeInterface)
         {
+            if (type == null)
+                throw new ArgumentNullException("type");
+
+            if (typeInterface == null)
+                throw new ArgumentNullException("typeInterface");
+
             this.Type = type;
             this.Interface = typeInterface;
         }

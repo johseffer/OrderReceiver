@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RequestReceiver.Domain.Error;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,5 +23,17 @@ namespace RequestReceiver.Domain.Entities
         public virtual Customer Customer { get; set; }
 
         public DateTime? CreationDate { get; set; }
+
+        public List<ApplicationError> IsValid()
+        {
+            List<ApplicationError> errors = new List<ApplicationError>();
+
+            if (string.IsNullOrEmpty(Number))
+                errors.Add(new ApplicationError("Numero deve ser preenchido."));          
+            if (CustomerId == Guid.Empty)
+                errors.Add(new ApplicationError("Cliente deve ser preenchido."));
+
+            return errors;
+        }
     }
 }

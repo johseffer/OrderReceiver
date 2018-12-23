@@ -25,7 +25,7 @@ namespace RequestReceiver.Service.Services
         public void Add(Order obj)
         {
             obj.CreationDate = DateTime.Now;
-
+            obj.Customer = null;
             foreach (var item in obj.OrderItems)
             {
                 item.OrderId = obj.Id;
