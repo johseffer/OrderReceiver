@@ -5,6 +5,8 @@ import { ErrorHandlerInterceptor } from './services/http/error-handler.intercept
 import { OrderService } from 'src/app/shared/services/order.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProductService } from './services/product.service';
+import { CustomerService } from './services/customer.service';
 
 @NgModule({
   declarations: [],
@@ -16,6 +18,8 @@ import { BrowserModule } from '@angular/platform-browser';
   providers: [
     HttpService,
     OrderService,
+    ProductService,
+    CustomerService,
     ErrorHandlerInterceptor,
   ]
 })

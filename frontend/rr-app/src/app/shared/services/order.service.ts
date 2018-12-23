@@ -19,10 +19,10 @@ export class OrderService {
   }
 
   addOrder(order: Order) {
-    return this.httpService.get(`${environment.apiUrl}/api/Order`).toPromise();
+    return this.httpService.post(`${environment.apiUrl}/api/Order`, order).toPromise();
   }
 
   updateOrder(order: Order) {
-    return this.httpService.get(`${environment.apiUrl}/api/Order/${order.id}`).toPromise();
+    return this.httpService.put(`${environment.apiUrl}/api/Order/${order.id}`, order).toPromise();
   }
 }

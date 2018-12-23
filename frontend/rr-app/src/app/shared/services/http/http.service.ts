@@ -12,20 +12,8 @@ declare module '@angular/common/http/src/client' {
   // Augment HttpClient with the added configuration methods from HttpService, to allow in-place replacement of
   // HttpClient with HttpService using dependency injection
   export interface HttpClient {
-
-    /**
-     * Enables caching for this request.
-     * @param {boolean} forceUpdate Forces request to be made and updates cache entry.
-     * @return {HttpClient} The new instance.
-     */
     cache(forceUpdate?: boolean): HttpClient;
-
-    /**
-     * Skips default error handler for this request.
-     * @return {HttpClient} The new instance.
-     */
     skipErrorHandler(): HttpClient;
-
   }
 
 }

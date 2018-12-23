@@ -10,12 +10,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { OrderService } from '../shared/services/order.service';
 import { OrdersDetailPageComponent } from './orders-page/orders-detail-page/orders-detail-page.component';
-import { OrdersItemPageComponent } from './orders-page/orders-item-page/orders-item-page.component';
-import { OrdersItemDetailPageComponent } from './orders-page/orders-item-detail-page/orders-item-detail-page.component';
 import { ProductService } from '../shared/services/product.service';
 
 @NgModule({
-  declarations: [HomePageComponent, OrdersPageComponent, OrdersDetailPageComponent, OrdersItemPageComponent, OrdersItemDetailPageComponent],
+  declarations: [HomePageComponent, OrdersPageComponent, OrdersDetailPageComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -27,6 +25,7 @@ import { ProductService } from '../shared/services/product.service';
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     MatSliderModule,
+    MatProgressSpinnerModule,
     SharedModule
   ],
   providers: [OrderService, ProductService]

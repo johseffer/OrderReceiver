@@ -34,16 +34,18 @@ export class OrdersPageComponent implements OnInit {
 
   loadOrders(number) {
     this.filteredOptions = [];
-    const result = new MatTableDataSource<Order>();
-    const elementsArray = [];
-    this._orderService.getOrders(number)
-      .then(r => {
-        (r as any).forEach(element => {
-          this.filteredOptions.push(element);
+    if (number.length > 0) {
+      const result = new MatTableDataSource<Order>();
+      const elementsArray = [];
+      this._orderService.getOrders(number)
+        .then(r => {
+          (r as any).forEach(element => {
+            this.filteredOptions.push(element);
+          });
+        })
+        .catch(error => {
+          alert('Erro ao buscar pedidos.');
         });
-      })
-      .catch(error => {
-        alert('Erro ao buscar pedidos.');
-      });
+    }
   }
 }
