@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using RequestReceiver.Domain.Entities;
 using System;
+using System.Linq;
 
 namespace RequestReceiver.Domain.UnitTest
 {
@@ -15,10 +16,10 @@ namespace RequestReceiver.Domain.UnitTest
         public void UTOrder_IsValid()
         {
             Order order = new Order();
-            Assert.IsFalse(order.IsValid());
+            Assert.IsTrue(order.IsValid().Count == 2);
 
             order = new Order() { Number = "9999999", CustomerId = Guid.NewGuid(), CreationDate = DateTime.Now };
-            Assert.IsTrue(order.IsValid());
+            Assert.IsFalse(order.IsValid().Any());
         }
     }
 }

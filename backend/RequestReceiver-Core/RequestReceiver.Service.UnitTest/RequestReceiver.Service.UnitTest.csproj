@@ -13,4 +13,9 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RequestReceiver.Domain\RequestReceiver.Domain.csproj" />
+    <ProjectReference Include="..\RequestReceiver.Service\RequestReceiver.Service.csproj" />
+  </ItemGroup>
+
 </Project>

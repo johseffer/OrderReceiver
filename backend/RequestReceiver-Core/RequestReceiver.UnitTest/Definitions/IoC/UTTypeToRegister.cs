@@ -1,4 +1,6 @@
 using NUnit.Framework;
+using RequestReceiver.Definitions.IoC;
+using System;
 
 namespace RequestReceiver.UnitTest.Definitions.IoC
 {
@@ -10,9 +12,14 @@ namespace RequestReceiver.UnitTest.Definitions.IoC
         }
 
         [Test]
-        public void Test1()
+        public void TypeToRegisterConstructor()
         {
-            Assert.Pass();
+            var ex = Assert.Throws<ArgumentNullException>(() => new TypeToRegister(null, null));
+            Assert.IsTrue(ex != null);
+            object model = null;
+
+            model = new TypeToRegister(typeof(UTTypeToRegister), typeof(UTTypeToRegister));
+            Assert.IsTrue(model != null);
         }
     }
 }

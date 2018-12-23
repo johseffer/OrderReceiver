@@ -29,9 +29,27 @@ namespace RequestReceiver.Domain.Entities
             List<ApplicationError> errors = new List<ApplicationError>();
 
             if (string.IsNullOrEmpty(Number))
-                errors.Add(new ApplicationError("Numero deve ser preenchido."));          
+                errors.Add(new ApplicationError("Numero deve ser preenchido."));
             if (CustomerId == Guid.Empty)
                 errors.Add(new ApplicationError("Cliente deve ser preenchido."));
+
+            if (this.OrderItems.Count > 0)
+            {
+                var contItem = 1;
+                foreach (var item in OrderItems)
+                {
+                    if (item.ProductId == null || item.ProductId == Guid.Empty)
+                        errors.Add(new ApplicationError($"Produto do item {contItem} deve ser preenchido."));
+
+                    if (item.Quantity <= 0)
+                        errors.Add(new ApplicationError($"Quantidade do item {contItem} deve ser preenchida."));
+
+                    if (item.UnitPrice <= 0)
+                        errors.Add(new ApplicationError($"Preço do item {contItem} deve ser preenchido."));
+
+                    contItem++;
+                }
+            }
 
             return errors;
         }

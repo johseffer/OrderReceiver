@@ -24,6 +24,12 @@ namespace RequestReceiver.Service.Services
 
         public void Add(Order obj)
         {
+            var validationMessages = obj.IsValid();
+            if (validationMessages.Any())
+            {
+                throw new RequestReceiver.Domain.Error.ApplicationException(validationMessages);
+            }
+
             obj.CreationDate = DateTime.Now;
             obj.Customer = null;
             foreach (var item in obj.OrderItems)
@@ -42,6 +48,12 @@ namespace RequestReceiver.Service.Services
 
         public void Update(Order obj)
         {
+            var validationMessages = obj.IsValid();
+            if (validationMessages.Any())
+            {
+                throw new RequestReceiver.Domain.Error.ApplicationException(validationMessages);
+            }
+
             _OrderRepository.Update(obj);
             this.UpdateItems(obj);
         }
