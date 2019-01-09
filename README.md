@@ -1,4 +1,4 @@
-# RequestReceiver
+# OrderReceiver
 
 ## Aplicação destinada a controlar o preço de suas vendas de acordo com a rentabilidade de seus produtos
 Demo: http://orderreceiver.herokuapp.com
