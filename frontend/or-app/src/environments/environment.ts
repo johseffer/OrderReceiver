@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44307',
+  apiUrl: 'https://orderreceiver-api.herokuapp.com',
 };
 
 /*
